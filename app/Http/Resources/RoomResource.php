@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PropertyResource extends JsonResource
+class RoomResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,11 +16,12 @@ class PropertyResource extends JsonResource
     {
         return [
             'id' => $this->getKey(),
+            'property_id' => $this->property_id,
             'name' => $this->name,
-            'address' => $this->address,
+            'size' => $this->size,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'rooms' => RoomResource::collection($this->whenLoaded('rooms')),
+            'property' => new PropertyResource($this->whenLoaded('property')),
         ];
     }
 }
