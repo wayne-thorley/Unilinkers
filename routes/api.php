@@ -1,6 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Property\DestroyPropertyController;
+use App\Http\Controllers\Property\ListPropertyController;
+use App\Http\Controllers\Property\ShowPropertyController;
+use App\Http\Controllers\Property\StorePropertyController;
+use App\Http\Controllers\Property\UpdatePropertyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('/property')->name('property.')->group(function () {
+    Route::put('/{property}', UpdatePropertyController::class)->name('update');
+    Route::delete('/{property}', DestroyPropertyController::class)->name('destroy');
+    Route::get('/{property}', ShowPropertyController::class)->name('show');
+    Route::post('/', StorePropertyController::class)->name('store');
+    Route::get('/', ListPropertyController::class)->name('list');
 });
