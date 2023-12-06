@@ -15,18 +15,26 @@ function PropertyForm( { property, onPersist }: Props ): React.ReactElement {
 
     const { updateProperty, storeProperty } = usePropertyApi();
 
+    const parseErrors = ( errors: { [ key: string ]: string } ) => {
+        [ name, address ].forEach( field => field.parseErrors( errors ) );
+    };
+
     const persist = () => {
         if ( property.id ) {
             updateProperty( {
                 id: property.id,
                 name: name.value,
                 address: address.value,
-            } ).then( ( { data } ) => onPersist( data.data ) );
+            } )
+                .then( ( { data } ) => onPersist( data.data ) )
+                .catch( error => parseErrors( error.response?.data?.errors ) );
         } else {
             storeProperty( {
                 name: name.value,
                 address: address.value,
-            } ).then( ( { data } ) => onPersist( data.data ) );
+            } )
+                .then( ( { data } ) => onPersist( data.data ) )
+                .catch( error => parseErrors( error.response?.data?.errors ) );
         }
     };
 
