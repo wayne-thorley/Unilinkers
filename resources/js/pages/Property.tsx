@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { usePropertyApi } from '../hooks';
 import Page from '../layout/Page';
 import { Property as PropertyType } from '../types/property';
-import { Modal, Property as PropertyComponent, PropertyForm } from '../components';
+import {
+    Button, Modal, Property as PropertyComponent, PropertyForm,
+} from '../components';
 
 function Property(): React.ReactElement {
     const [ properties, setProperties ] = useState<PropertyType[]>( [] );
@@ -32,6 +34,11 @@ function Property(): React.ReactElement {
         setShowFormModal( false );
     };
 
+    const createProperty = () => {
+        setEditingProperty( {} );
+        setShowFormModal( true );
+    };
+
     const removeProperty = ( property: PropertyType ) => {
         setProperties( properties.filter( p => p.id !== property.id ) );
     };
@@ -45,7 +52,10 @@ function Property(): React.ReactElement {
     return (
         <Page title="Property">
             <div className="container my-6">
-                <h1 className="text-2xl font-bold">Property</h1>
+                <div className="flex justify-between">
+                    <h1 className="text-2xl font-bold">Property</h1>
+                    <Button onClick={ createProperty }>Add Property</Button>
+                </div>
                 <div className="flex flex-wrap -mx-2 mt-2">
                     { properties.map( property => (
                         <div key={ property.id } className="w-1/3 px-2 mb-4">

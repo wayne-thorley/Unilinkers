@@ -41,7 +41,7 @@ function Property( {
                 <div className={ styles.address }>{ address }</div>
                 <div className={ styles.actions }>
                     <Button onClick={ edit }>Edit</Button>
-                    { ' ' }
+                    &nbsp;
                     <Button onClick={ destroy }>Delete</Button>
                 </div>
             </div>

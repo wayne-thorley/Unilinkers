@@ -10,13 +10,13 @@ type Props = {
 };
 
 function PropertyForm( { property, onPersist }: Props ): React.ReactElement {
-    const name = useInputValue( 'name', property.name );
-    const address = useInputValue( 'address', property.address );
+    const name = useInputValue( 'name', property.name || '' );
+    const address = useInputValue( 'address', property.address || '' );
 
     const { updateProperty, storeProperty } = usePropertyApi();
 
     const persist = () => {
-        if ( property ) {
+        if ( property.id ) {
             updateProperty( {
                 id: property.id,
                 name: name.value,
@@ -35,7 +35,7 @@ function PropertyForm( { property, onPersist }: Props ): React.ReactElement {
             <Input type="text" label="Name" { ...name.bind } />
             <Input type="text" label="Address" { ...address.bind } />
             <Button onClick={ persist }>
-                { property ? 'Update' : 'Store' }
+                { property.id ? 'Update' : 'Store' }
             </Button>
         </form>
     );
