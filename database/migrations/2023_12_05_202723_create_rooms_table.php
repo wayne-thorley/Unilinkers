@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->foreignUlid('property_id')->constrained();
+            $table->foreignUlid('property_id')->constrained()->cascadeOnDelete();
             $table->string('name', 255);
             $table->decimal('size', 10, 2);
             $table->timestamps();
