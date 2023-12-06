@@ -1,18 +1,9 @@
-import './bootstrap';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { config as routerConfig } from './router';
 
-function Home(): React.ReactElement {
-    return <h1 className="text-5xl">Hello World</h1>;
-}
-
-const router = createBrowserRouter( [
-    {
-        path: '/',
-        element: <Home />,
-    },
-] );
+const router = createBrowserRouter( routerConfig );
 
 ReactDOM.createRoot( document.getElementById( 'root' )! ).render(
     <React.StrictMode>

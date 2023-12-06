@@ -4,13 +4,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{config('app.name')}}</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name') }}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700" rel="stylesheet">
 
     @vite(['resources/css/app.css'])
 </head>
 
-<body>
-    <div id="root"></div>
+<body class="antialiased text-body min-h-screen flex flex-col bg-gray-100">
+    <div id="root" class="flex flex-col min-h-screen"></div>
     @viteReactRefresh
     @vite(['resources/js/app.tsx'])
 </body>
