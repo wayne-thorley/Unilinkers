@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRoomApi } from '../hooks';
-import { Page } from '../layout';
+import Page from '../layout/Page';
 import { Room as RoomType } from '../types/room';
 
 function Room(): React.ReactElement {

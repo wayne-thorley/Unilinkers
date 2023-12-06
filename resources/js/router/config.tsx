@@ -1,6 +1,8 @@
 import React from 'react';
 import routes from './routes';
-import { Home, Property, Room } from '../pages';
+import Home from '../pages/Home';
+import Property from '../pages/Property';
+import Room from '../pages/Room';
 
 const config = [
     {
