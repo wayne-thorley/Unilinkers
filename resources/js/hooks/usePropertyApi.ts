@@ -40,7 +40,7 @@ function usePropertyApi() {
         destroyProperty: (
             { id }: DestroyPropertyInput,
         ): Promise<AxiosResponse<Record<string, never>>> => http( {
-            method: 'PUT',
+            method: 'DELETE',
             url: `/property/${ id }`,
         } ),
     };
