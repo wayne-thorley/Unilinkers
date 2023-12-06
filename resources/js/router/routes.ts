@@ -1,18 +1,12 @@
 const routes = {
     home: '/',
     property: {
-        list: '/property',
-        store: '/property',
+        index: '/property',
         show: '/property/:id',
-        update: '/property/:id',
-        delete: '/property/:id',
     },
     room: {
-        list: '/room',
-        store: '/room',
+        index: '/room',
         show: '/room/:id',
-        update: '/room/:id',
-        delete: '/room/:id',
     },
 };
 

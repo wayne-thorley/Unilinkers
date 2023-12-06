@@ -15,11 +15,11 @@ function Header(): React.ReactElement {
     const navItems = [
         {
             name: 'Property',
-            route: routes.property.list,
+            route: routes.property.index,
         },
         {
             name: 'Room',
-            route: routes.room.list,
+            route: routes.room.index,
         },
     ];
 

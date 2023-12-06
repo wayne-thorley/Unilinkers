@@ -1,3 +1,3 @@
-export { default as Home } from './home';
-export { default as Property } from './property';
-export { default as Room } from './room';
+export { default as Home } from './Home';
+export { default as Property } from './Property';
+export { default as Room } from './Room';

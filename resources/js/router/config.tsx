@@ -8,11 +8,11 @@ const config = [
         element: <Home />,
     },
     {
-        path: routes.property.list,
+        path: routes.property.index,
         element: <Property />,
     },
     {
-        path: routes.room.list,
+        path: routes.room.index,
         element: <Room />,
     },
 ];
